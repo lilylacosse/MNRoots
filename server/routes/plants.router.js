@@ -7,7 +7,22 @@ const router = express.Router();
 router.get("/", (req, res) => {
   axios
     .get(
-      `https://trefle.io/api/v1/distributions/min/plants?filter%5Bestablishment%5D=native&token=${process.env.TREFLE_API_KEY}`
+      `https://trefle.io/api/v1/distributions/min/plants?filter[establishment]=native&token=${process.env.TREFLE_API_KEY}`
+    )
+    .then((response) => {
+      console.log(`trefle data:`, response.data);
+      return res.send(response.data);
+    })
+    .catch((err) => {
+      console.log(`get TREFLE PLANT LIST error:`, err);
+      res.sendStatus(500);
+    });
+});
+
+router.get("/spec", (req, res) => {
+  axios
+    .get(
+      `https://trefle.io/api/v1/species/11971?token=${process.env.TREFLE_API_KEY}`
     )
     .then((response) => {
       console.log(`trefle data:`, response.data);
