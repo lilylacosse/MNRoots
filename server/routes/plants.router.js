@@ -6,7 +6,9 @@ const router = express.Router();
 //  https GET request to Trefle API to retrieve plant list to server to user based on user input
 router.get("/", (req, res) => {
   axios
-    .get(`https://trefle.io/api/v1/plants?token=${process.env.TREFLE_API_KEY}`)
+    .get(
+      `https://trefle.io/api/v1/distributions/min/plants?filter%5Bestablishment%5D=native&token=${process.env.TREFLE_API_KEY}`
+    )
     .then((response) => {
       console.log(`trefle data:`, response.data);
       return res.send(response.data);
