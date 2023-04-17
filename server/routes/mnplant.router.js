@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
   const sqlText = `select * from native_plants`;
   pool
     .query(sqlText)
-    .then((response) => res.send(response.data))
+    .then((response) => res.send(response.rows))
     .catch((err) => {
       console.log(`GET all plants error:`, err);
       res.sendStatus(500);
