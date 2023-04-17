@@ -6,7 +6,7 @@ function* fetchMnPlants() {
   try {
     const mnPlants = yield axios.get("/api/mnplants");
     console.log(`mnPlants in Saga:`, mnPlants);
-    yield put({ type: "SET_MN_PLANTS", payload: response.data });
+    yield put({ type: "SET_MN_PLANTS", payload: mnPlants.data });
   } catch (error) {
     console.log("MN Plants GET request failed", error);
   }

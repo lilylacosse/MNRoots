@@ -1,4 +1,4 @@
-const mnPlantReducer = (state = [], action) => {
+const mnPlants = (state = [], action) => {
   switch (action.type) {
     case "SET_MN_PLANTS":
       return action.payload;
@@ -11,4 +11,4 @@ const mnPlantReducer = (state = [], action) => {
 
 // user will be on the redux state at:
 // state.user
-export default mnPlantReducer;
+export default mnPlants;
