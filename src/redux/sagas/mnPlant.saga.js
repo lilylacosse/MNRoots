@@ -2,6 +2,9 @@ import axios from "axios";
 import { put, takeLatest } from "redux-saga/effects";
 
 // worker Sagas: will be fired on based on dispatched action
+
+// all sagas in this file communicate with /api/mnplants route
+
 function* fetchMnPlants() {
   try {
     const mnPlants = yield axios.get("/api/mnplants");
@@ -11,7 +14,8 @@ function* fetchMnPlants() {
     console.log("MN Plants GET request failed", error);
   }
 }
-
+// fetchMnPlants saga retrieves all MN Native plants from native_plants table in db
+// all plants are then saved to mnPlants reducer
 function* mnPlantSaga() {
   yield takeLatest("FETCH_MN_PLANTS", fetchMnPlants);
 }
