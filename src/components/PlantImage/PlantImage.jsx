@@ -6,7 +6,7 @@ function PlantImage(props) {
 
     return (
         <div>
-            <h2>MN Plant Image</h2>
+            <div>MN Plant Image</div>
         </div>
     );
 }

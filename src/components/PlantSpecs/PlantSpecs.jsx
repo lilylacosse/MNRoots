@@ -7,7 +7,7 @@ function PlantSpecs(props) {
 
     return (
         <div>
-            <h2>MN Plant Specs</h2>
+            <div>MN Plant Specs</div>
         </div>
     );
 }
