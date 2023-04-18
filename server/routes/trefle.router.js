@@ -51,7 +51,7 @@ router.get("/", (req, res) => {
               });
           });
       }
-      return res.sendStatus(201);
+      // return res.sendStatus(201);
     })
     .catch((err) => {
       console.log(`get TREFLE PLANT LIST error:`, err);
