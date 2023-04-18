@@ -32,6 +32,18 @@ router.get("/", rejectUnauthenticated, (req, res) => {
     .catch((err) => res.sendStatus(500));
 });
 
+router.get("/notes", rejectUnauthenticated, (req, res) => {
+  // TEST QUERY
+  let sqlQuery = `SELECT "notes" FROM "user"
+  WHERE "id" = $1`;
+  let queryValues = [req.user.id];
+
+  pool
+    .query(sqlQuery, queryValues)
+    .then((response) => res.send(response.rows))
+    .catch((err) => res.sendStatus(500));
+});
+
 // PUT route - updates notes column of the user table
 router.put("/", rejectUnauthenticated, (req, res) => {
   let sqlQuery = `UPDATE "user" SET notes=$1 
