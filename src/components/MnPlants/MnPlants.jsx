@@ -25,6 +25,7 @@ function MnPlants(props) {
                             <button>Save to Your Garden</button>
 
                             {/* <div>{plant.images.leaf.map((pic) => { return (<div key={pic.id}><img src={pic.image_url} /></div>) })} */}
+                            {/* I THINK THIS IMAGE ASPECT NEEDS TO BE ITS OWN COMPONENT */}
                         </div>
                     );
                 })}
