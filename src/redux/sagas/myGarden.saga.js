@@ -42,7 +42,7 @@ function* deleteMyPlant() {
 }
 function* myGardenSaga() {
   yield takeLatest("ADD_MY_PLANT", addMyPlant);
-  yield takeLatest("UPDATE_MY_NOTES", updateMyNotes);
+  yield takeLatest("FETCH_MY_GARDEN", fetchMyGarden);
   yield takeLatest("DELETE_MY_PLANT", deleteMyPlant);
 }
 
