@@ -32,30 +32,6 @@ router.get("/", rejectUnauthenticated, (req, res) => {
     .catch((err) => res.sendStatus(500));
 });
 
-router.get("/notes", rejectUnauthenticated, (req, res) => {
-  // TEST QUERY
-  let sqlQuery = `SELECT "notes" FROM "user"
-  WHERE "id" = $1`;
-  let queryValues = [req.user.id];
-
-  pool
-    .query(sqlQuery, queryValues)
-    .then((response) => res.send(response.rows))
-    .catch((err) => res.sendStatus(500));
-});
-
-// PUT route - updates notes column of the user table
-router.put("/", rejectUnauthenticated, (req, res) => {
-  let sqlQuery = `UPDATE "user" SET notes=$1 
-  WHERE id = $2`;
-  let queryValues = [req.body.notes, req.user.id];
-
-  pool
-    .query(sqlQuery, queryValues)
-    .then((response) => res.sendStatus(200))
-    .catch((err) => res.sendStatus(500));
-});
-
 // DELETE route - deletes selected plant from user_favs table in db
 // dependent on user id
 router.delete("/:id", rejectUnauthenticated, (req, res) => {
