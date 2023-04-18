@@ -12,7 +12,7 @@ function* addMyPlant() {
     console.log(`addMyPlant Saga:`, action.payload);
     yield put({ type: "FETCH_MY_GARDEN" });
   } catch (error) {
-    console.log("client side POST myGarden request failed", error);
+    console.log("client side myGarden POST request failed", error);
   }
 }
 
@@ -25,37 +25,23 @@ function* fetchMyGarden() {
     console.log(`myGarden in Saga:`, myGarden);
     yield put({ type: "SET_MY_GARDEN", payload: myGarden.data });
   } catch (error) {
-    console.log("client side GET myGarden request failed", error);
+    console.log("client side myGarden GET request failed", error);
   }
 }
-function* fetchMyNotes() {
-  // fetchMyNotes saga retrieves the notes saved in the notes column of the user table in the db
-  // the notes are then saved to the myNotes reducer
-  try {
-    const myNotes = yield axios.get("/api/mygarden/notes");
-    console.log(`myGarden in Saga:`, myGarden);
-    yield put({ type: "SET_MY_NOTES", payload: myNotes.data });
-  } catch (error) {
-    console.log("client side GET myGarden request failed", error);
-  }
-}
-// UPDATE - PUT
-function* updateMyNotes() {
-  // updateMyNotes saga updates the notes column in the user table of the db
-  try {
-    yield axios.put(`/api/mygarden`, action.payload);
-    console.log(`updateMyNotes Saga:`, action.payload);
-    yield put({ type: "FETCH_MY_NOTES" });
-  } catch (error) {
-    console.log("client side POST myGarden request failed", error);
-  }
-}
-// DELETE - DELETE
 
+// DELETE - DELETE
+function* deleteMyPlant() {
+  // deleteMyPlant saga updates the notes column in the user table of the db
+  try {
+    yield axios.put(`/api/mygarden/${action.payload}`);
+    console.log(`deleteMyPlant Saga:`, action.payload);
+    yield put({ type: "FETCH_MY_GARDEN" });
+  } catch (error) {
+    console.log("client side myGarden DELETE request failed", error);
+  }
+}
 function* myGardenSaga() {
   yield takeLatest("ADD_MY_PLANT", addMyPlant);
-  yield takeLatest("FETCH_MY_GARDEN", fetchMyGarden);
-  yield takeLatest("FETCH_MY_NOTES", fetchMyNotes);
   yield takeLatest("UPDATE_MY_NOTES", updateMyNotes);
   yield takeLatest("DELETE_MY_PLANT", deleteMyPlant);
 }
