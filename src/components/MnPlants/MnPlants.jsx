@@ -54,6 +54,7 @@ function MnPlants() {
                         <div key={plant.id}>
                             <img src={plant.image_url} width="200" height='280' />
                             <br />
+                            {/* build this out */}
                             <button onClick={() => dispatchPlant(plant.id)} >Save to My Garden</button>
                         </div>
                     );

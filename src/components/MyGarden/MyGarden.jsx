@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import MyPlant from "../MyPlant/MyPlant";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { AuthenticationMD5Password } from "pg-protocol/dist/messages";
 // component renders favorite plants based on user ID - data comes from users_favorite table in db
 // also allows for deleting plants from MyGarden
 function MyGarden() {
@@ -23,8 +24,14 @@ function MyGarden() {
     function editNotes() {
         console.log(`In Edit Notes:`,);
     }
+
     function deletePlant(plantId) {
         console.log(`In Delete Plant, plant.id:`, plantId);
+
+        dispatch({
+            type: "DELETE_MY_PLANT",
+            payload: plantId
+        })
     }
 
 
@@ -55,6 +62,8 @@ function MyGarden() {
                         <div>{plant.scientific_name}</div>
                         <div><b>County:</b> {plant.county}</div>
                         <div><b>Discovery:</b> {plant.year}</div>
+                        {plant.habitat && (<div><b>Habitat:</b> {plant.habitat}</div>)}
+                        <br />
                         <button onClick={() => deletePlant(plant.id)}>Delete Plant</button>
                     </div>;
                 })

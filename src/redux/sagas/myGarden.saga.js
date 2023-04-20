@@ -34,7 +34,7 @@ function* fetchMyGarden() {
 function* deleteMyPlant(action) {
   // deleteMyPlant saga updates the notes column in the user table of the db
   try {
-    yield axios.put(`/api/mygarden/${action.payload}`);
+    yield axios.delete(`/api/mygarden/${action.payload}`);
     console.log(`deleteMyPlant Saga:`, action.payload);
     yield put({ type: "FETCH_MY_GARDEN" });
   } catch (error) {
