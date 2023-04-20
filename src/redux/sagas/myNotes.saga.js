@@ -10,8 +10,8 @@ function* fetchMyNotes() {
   // the notes are then saved to the myNotes reducer
   try {
     const myNotes = yield axios.get("/api/mynotes");
-    console.log(`myNotes in Saga:`, myNotes);
-    yield put({ type: "SET_MY_NOTES", payload: myNotes.data });
+    console.log(`myNotes in Saga:`, myNotes.data.notes);
+    yield put({ type: "SET_MY_NOTES", payload: myNotes.data.notes });
   } catch (error) {
     console.log("client side myNotes GET request failed", error);
   }

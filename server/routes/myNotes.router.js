@@ -14,7 +14,10 @@ router.get("/", rejectUnauthenticated, (req, res) => {
 
   pool
     .query(sqlQuery, queryValues)
-    .then((response) => res.send(response.rows))
+    .then((response) => {
+      // console.log(`notes get response:`, response.rows[0]);
+      res.send(response.rows[0]);
+    })
     .catch((err) => res.sendStatus(500));
 });
 
