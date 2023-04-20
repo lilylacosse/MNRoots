@@ -30,7 +30,7 @@ function MnPlants() {
     }
 
     return (
-        <div>
+        <center>
             <h2>Minnesota Native Plants</h2>
             <button onClick={() => { history.push('/yourgarden') }}>View My Garden</button>
             {/* TO DO - Add CARD features */}
@@ -50,7 +50,7 @@ function MnPlants() {
                     );
                 })}
             </div>
-        </div>
+        </center>
     )
 };
 

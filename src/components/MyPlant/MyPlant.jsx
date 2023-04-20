@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 // component renders favorite plants based on user ID - data comes from users_favorite table in db 
 // also allows for deleting plants from MyGarden
-function MyGarden({ plant }) {
+function MyPlant({ plant }) {
     const dispatch = useDispatch();
     function deletePlant(plantId) {
         dispatch({
@@ -21,4 +21,4 @@ function MyGarden({ plant }) {
     );
 }
 
-export default MyGarden;
+export default MyPlant;
