@@ -32,20 +32,15 @@ function MnPlants() {
     return (
         <center>
             <h2>Minnesota Native Plants</h2>
-            <button onClick={() => { history.push('/yourgarden') }}>View My Garden</button>
+            <button onClick={() => { history.push('/mygarden') }}>View My Garden</button>
             {/* TO DO - Add CARD features */}
             <div>
                 {mnPlants.map((plant) => {
                     return (
                         <div key={plant.id}>
-                            <div>{plant.common_name}</div>
-                            <PlantImage images={plant.images} />
-                            <PlantSpecs specs={plant.specifications} />
-                            <PlantGrowth growth={plant.growth} />
-                            <button onClick={() => dispatchPlant(plant)} >Save to My Garden</button>
+                            <img src={plant.image_url} />
 
-                            {/* <div>{plant.images.leaf.map((pic) => { return (<div key={pic.id}><img src={pic.image_url} /></div>) })} */}
-                            {/* I THINK THIS IMAGE ASPECT NEEDS TO BE ITS OWN COMPONENT */}
+                            <button onClick={() => dispatchPlant(plant)} >Save to My Garden</button>
                         </div>
                     );
                 })}

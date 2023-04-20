@@ -22,7 +22,7 @@ function* fetchMyGarden() {
   // all plants are then saved to myGarden reducer
   try {
     const myGarden = yield axios.get("/api/mygarden");
-    console.log(`myGarden in Saga:`, myGarden);
+    console.log(`myGarden.data in Saga:`, myGarden.data);
     yield put({ type: "SET_MY_GARDEN", payload: myGarden.data });
   } catch (error) {
     console.log("client side myGarden GET request failed", error);
