@@ -18,7 +18,7 @@ function* fetchMyNotes() {
 }
 
 // UPDATE - PUT
-function* updateMyNotes() {
+function* updateMyNotes(action) {
   // updateMyNotes saga updates the notes column in the user table of the db
   try {
     yield axios.put(`/api/mynotes`, action.payload);

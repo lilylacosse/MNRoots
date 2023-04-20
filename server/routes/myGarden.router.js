@@ -14,7 +14,7 @@ router.post("/:plantId", rejectUnauthenticated, (req, res) => {
 
   pool
     .query(sqlQuery, queryValues)
-    .then((response) => res.send(201))
+    .then((response) => res.sendStatus(201))
     .catch((err) => res.sendStatus(500));
 });
 

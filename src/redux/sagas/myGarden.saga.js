@@ -5,14 +5,15 @@ import { put, takeLatest } from "redux-saga/effects";
 
 // WORKER SAGAS: will be fired on based on dispatched action
 // CREATE - POST
-function* addMyPlant() {
+function* addMyPlant(action) {
   // addMyPlant saga saves user selected plants to users_favs table in db which joins with the native_plants table
   try {
+    console.log(action.payload);
     yield axios.post(`/api/mygarden/${action.payload}`);
-    console.log(`addMyPlant Saga:`, action.payload);
+
     yield put({ type: "FETCH_MY_GARDEN" });
   } catch (error) {
-    console.log("client side myGarden POST request failed", error);
+    console.log("client side myGarden POST request failed:", error);
   }
 }
 
@@ -30,7 +31,7 @@ function* fetchMyGarden() {
 }
 
 // DELETE - DELETE
-function* deleteMyPlant() {
+function* deleteMyPlant(action) {
   // deleteMyPlant saga updates the notes column in the user table of the db
   try {
     yield axios.put(`/api/mygarden/${action.payload}`);

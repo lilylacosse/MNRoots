@@ -22,10 +22,10 @@ function MnPlants() {
         dispatch({ type: "FETCH_MN_PLANTS" });
     }, []);
 
-    function dispatchPlant(plant) {
+    function dispatchPlant(plantId) {
         dispatch({
-            type: "",
-            payload: plant
+            type: "ADD_MY_PLANT",
+            payload: plantId
         })
     }
 
@@ -34,16 +34,18 @@ function MnPlants() {
             <h2>Minnesota Native Plants</h2>
             <button onClick={() => { history.push('/mygarden') }}>View My Garden</button>
             {/* TO DO - Add CARD features */}
-            <div>
-                {mnPlants.map((plant) => {
+            <div>{mnPlants ?
+
+                mnPlants.map((plant) => {
                     return (
                         <div key={plant.id}>
                             <img src={plant.image_url} />
-
-                            <button onClick={() => dispatchPlant(plant)} >Save to My Garden</button>
+                            <button onClick={() => dispatchPlant(plant.id)} >Save to My Garden</button>
                         </div>
                     );
-                })}
+                })
+                : <div>Loading</div>
+            }
             </div>
         </center>
     )
