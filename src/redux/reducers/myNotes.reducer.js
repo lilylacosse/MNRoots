@@ -2,9 +2,8 @@ const myNotes = (state = [], action) => {
   switch (action.type) {
     case "SET_MY_NOTES":
       return action.payload;
-    // case "UNSET_MY_NOTES":
-    //   //   TO-DO: On Log Out?
-    //   return [];
+    case "CAPTURE_NOTES_UPDATE":
+      return action.payload;
     default:
       return state;
   }

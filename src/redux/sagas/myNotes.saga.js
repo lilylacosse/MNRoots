@@ -18,7 +18,7 @@ function* fetchMyNotes() {
 }
 
 // UPDATE - PUT
-function* updateMyNotes(action) {
+function* saveMyNotes(action) {
   // updateMyNotes saga updates the notes column in the user table of the db
   try {
     yield axios.put(`/api/mynotes`, action.payload);
@@ -31,7 +31,7 @@ function* updateMyNotes(action) {
 
 function* myNotesSaga() {
   yield takeLatest("FETCH_MY_NOTES", fetchMyNotes);
-  yield takeLatest("UPDATE_MY_NOTES", updateMyNotes);
+  yield takeLatest("SAVE_MY_NOTES", saveMyNotes);
 }
 
 export default myNotesSaga;

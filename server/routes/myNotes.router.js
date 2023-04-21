@@ -7,7 +7,6 @@ const {
 
 // GET route - retrieves user notes from user table in db based on user id
 router.get("/", rejectUnauthenticated, (req, res) => {
-  // TEST QUERY
   let sqlQuery = `SELECT "notes" FROM "user"
   WHERE "id" = $1`;
   let queryValues = [req.user.id];
@@ -23,6 +22,7 @@ router.get("/", rejectUnauthenticated, (req, res) => {
 
 // PUT route - updates notes based on user id in the user table
 router.put("/", rejectUnauthenticated, (req, res) => {
+  // console.log(`req.body:`, req.body);
   let sqlQuery = `UPDATE "user" SET notes=$1 
   WHERE id = $2`;
   let queryValues = [req.body.notes, req.user.id];
