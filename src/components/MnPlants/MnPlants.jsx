@@ -52,10 +52,13 @@ function MnPlants() {
                 mnPlants.map((plant) => {
                     return (
                         <div key={plant.id}>
+                            <h4>{plant.genus}</h4>
                             <img src={plant.image_url} width="200" height='280' />
-                            <br />
-                            {/* build this out */}
-                            <button onClick={() => dispatchPlant(plant.id)} >Save to My Garden</button>
+                            <div>{plant.scientific_name}</div>
+                            <div><b>County:</b> {plant.county}</div>
+                            <div><b>Discovery:</b> {plant.year}</div>
+                            {plant.habitat && (<div><b>Habitat:</b> {plant.habitat}</div>)}
+                            <br />                            <button onClick={() => dispatchPlant(plant.id)} >Save to My Garden</button>
                         </div>
                     );
                 })
