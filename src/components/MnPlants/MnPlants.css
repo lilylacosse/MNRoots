@@ -6,6 +6,7 @@
 
 .card {
     display: grid;
+    border: 6px black;
     grid-template-rows: max-content 200px 1fr;
 }
 
