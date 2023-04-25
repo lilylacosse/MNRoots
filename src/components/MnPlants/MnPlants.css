@@ -1,17 +1,42 @@
-.cards {
+body {
+    background-color: #8E84CC;
+    color: #FFFFFF;
+}
+
+.containerMargin {
+    margin: 50px;
+}
+
+.container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     grid-gap: 20px;
 }
 
-.card {
+.item {
+    /* border: 2px solid black; */
     display: grid;
-    border: 6px black;
-    grid-template-rows: max-content 200px 1fr;
+    border-radius: 15px;
+    grid-template-rows: 45px 280px 37px repeat(3, 20px);
+    row-gap: 5px;
+    padding: 10px;
+    background-color: #AFA4F3;
+    justify-content: center;
+    align-content: center;
+    align-items: flex-start;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+
 }
 
-.card img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
+img.grid-item {
+    justify-self: center;
+}
+
+.saveToGarden {
+    border-radius: 10px;
+    padding: 3px;
+    max-width: fit-content;
+    bottom: 5px;
+    justify-self: center;
+    background-color: #375E38;
 }
