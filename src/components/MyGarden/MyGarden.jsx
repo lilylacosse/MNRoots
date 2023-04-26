@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
 
 import MyNotes from "../MyNotes/MyNotes";
 import "./MyGarden.css"
@@ -9,22 +8,20 @@ import "./MyGarden.css"
 // also allows for deleting plants from MyGarden
 function MyGarden() {
     const dispatch = useDispatch();
-    useEffect(() => {
-        dispatch({ type: "FETCH_MY_NOTES" });
-    }, []);
+
 
     useEffect(() => {
         dispatch({ type: "FETCH_MY_GARDEN" });
     }, []);
 
-
-
-    const myNotes = useSelector((store) => store.myNotes)
     const myGarden = useSelector((store) => store.myGarden);
-    console.log(`myNotes:`, myNotes);
-    console.log(`myGarden:`, myGarden);
+    const [deleteBoolean, setDeleteBoolean] = useState(false)
+    // console.log(`myNotes:`, myNotes);
+    // console.log(`myGarden:`, myGarden);
 
-
+    function engageDeleteMode() {
+        setDeleteBoolean(!deleteBoolean)
+    }
 
     function deletePlant(plantId) {
         console.log(`In Delete Plant, plant.id:`, plantId);
@@ -37,17 +34,18 @@ function MyGarden() {
 
 
     return (
-        <center>
+        <center className='myGarden'>
             <h1>My Garden</h1>
             <MyNotes />
             <h2>Plants</h2>
 
+            <button className="editPlantsBtn" onClick={engageDeleteMode}>{deleteBoolean ? 'View Plants' : 'Edit Plants'}</button>
             <div className="containerMargin">
-                <section className="container">
+                <section className="myContainer">
                     {
                         myGarden ? (
                             myGarden.map((plant) => {
-                                return <div className="item" key={plant.id}>
+                                return <div className="myItem" key={plant.id}>
 
                                     <h4 className="grid-item genus">{plant.genus}</h4>
                                     <img className="grid-item" src={plant.image_url} width="200" height='280' />
@@ -58,8 +56,8 @@ function MyGarden() {
                                         <div className="grid-item habitat">
                                             <b>Habitat:</b> {plant.habitat}</div>) : (<div></div>)
                                     }
-
-                                    <button className="deleteBtn" onClick={() => deletePlant(plant.id)}>Delete Plant</button>
+                                    {deleteBoolean &&
+                                        <button className="deleteBtn" onClick={() => deletePlant(plant.id)}>Delete Plant</button>}
                                 </div>;
                             })
                         ) : (

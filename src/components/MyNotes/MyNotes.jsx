@@ -1,16 +1,21 @@
-import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
-import ".MyNotes.css"
+import "./MyNotes.css"
 
 // component renders Notes from user table in db
 // also allows for updating notes 
 function MyNotes() {
-
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch({ type: "FETCH_MY_NOTES" });
+    }, []);
+
+
     const myNotes = useSelector((store) => store.myNotes)
     const [editBoolean, setEditBoolean] = useState(false)
+
 
     function engageEditMode() {
         // this func toggles between the user notes displaying as text or as an editable form 
@@ -40,25 +45,30 @@ function MyNotes() {
     }
 
     return (
-        <center>
-            <h2>My Notes</h2>
-            {editBoolean ? (<form onSubmit={() => saveNotes(myNotes)}>
-                <input type='text'
-                    size='50'
+        <center >
+            <h2>Notes</h2>
+            <div className="containerMargin">
+                <section className="noteCard">
 
-                    onChange={(event) => captureNotes(event.target.value)}
-                    placeholder="Enter New Notes Here"
-                    value={myNotes}
-                />
-                <br />
-                <button type='submit'>Save Notes</button>
-            </form>) :
-                (<div>
-                    <div>{myNotes}</div>
-                    <br />
-                    <button onClick={engageEditMode}>Edit Notes</button>
-                </div>)
-            }
+                    {editBoolean ? (<form onSubmit={() => saveNotes(myNotes)}>
+                        <input type='text'
+                            size='50'
+
+                            onChange={(event) => captureNotes(event.target.value)}
+                            placeholder="Enter New Notes Here"
+                            value={myNotes}
+                        />
+                        <br />
+                        <button className='editNotesBtn' type='submit'>Save Notes</button>
+                    </form>) :
+                        (<div>
+                            <div className='myNotes'>{myNotes}</div>
+                            <br />
+                            <button className='editNotesBtn' onClick={engageEditMode}>Edit Notes</button>
+                        </div>)
+                    }
+                </section>
+            </div>
         </center>
     );
 }
