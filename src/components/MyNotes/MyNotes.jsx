@@ -51,9 +51,10 @@ function MyNotes() {
                 <section className="noteCard">
 
                     {editBoolean ? (<form onSubmit={() => saveNotes(myNotes)}>
-                        <input type='text'
+                        <input
+                            className='notesInput'
+                            type='text'
                             size='50'
-
                             onChange={(event) => captureNotes(event.target.value)}
                             placeholder="Enter New Notes Here"
                             value={myNotes}
