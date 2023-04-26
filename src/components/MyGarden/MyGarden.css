@@ -1,15 +1,14 @@
 .myGarden {
     height: 100%;
     background-color: #577558;
-    color: #FFFFFF;
+    color: black;
     font-weight: 600;
-    text-shadow: 1px 1px 2px black;
+
 
 }
 
 center {
     font-weight: 600;
-    text-shadow: 1px 1px 2px black;
     text-rendering: geometricPrecision;
 }
 
@@ -35,8 +34,6 @@ center {
     align-content: center;
     align-items: flex-start;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
-
-
 }
 
 h4.grid-item {
@@ -56,7 +53,7 @@ img.grid-item {
 
 .editPlantsBtn {
     background-color: #AFA4F3;
-    color: #ffffff;
+    color: #000000;
     border: none;
     /* border: 2px solid #AFA4F3; */
     outline: 0;
@@ -71,7 +68,6 @@ img.grid-item {
     font-size: 16px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
     text-rendering: geometricPrecision;
-    text-shadow: 1px 1px 2px black;
 }
 
 .editPlantsBtn:hover {
@@ -80,7 +76,7 @@ img.grid-item {
 
 .deleteBtn {
     background-color: #ed2e0888;
-    color: #ffffff;
+    color: #000000;
     border: none;
     /* border: 2px solid #ed2e0888; */
     outline: 0;
@@ -95,7 +91,7 @@ img.grid-item {
     font-size: 16px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
     text-rendering: geometricPrecision;
-    text-shadow: 1px 1px 2px black;
+
 }
 
 .deleteBtn:hover {
