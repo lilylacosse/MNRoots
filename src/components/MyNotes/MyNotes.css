@@ -1,0 +1,17 @@
+.editNotesBtn {
+    background-color: #5E559A;
+    color: #ffffff;
+    border: none;
+    outline: 0;
+    border-radius: 10px;
+    padding: 7px 12px;
+    margin: 5px;
+    max-width: fit-content;
+    bottom: 5px;
+    justify-self: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 600;
+    font-size: 24px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    text-rendering: geometricPrecision;
+}

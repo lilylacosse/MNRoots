@@ -1,5 +1,5 @@
 body {
-    background-color: #8E84CC;
+    background-color: #577558;
     color: #FFFFFF;
     font-weight: 600;
     text-shadow: 1px 1px 2px black;
@@ -23,16 +23,18 @@ center {
 }
 
 .item {
+    /* border: 2px solid black; */
     display: grid;
     border-radius: 15px;
     grid-template-rows: 45px 280px 37px repeat(2, 20px) 30px;
     row-gap: 5px;
     padding: 10px;
-    background-color: #AFA4F3;
+    background-color: #87A488;
     justify-content: center;
     align-content: center;
     align-items: flex-start;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+
 
 }
 
@@ -43,13 +45,12 @@ h4.grid-item {
     align-self: flex-start;
 }
 
-
 img.grid-item {
     justify-self: center;
 }
 
-.saveToGarden {
-    background-color: #416c42;
+.deleteBtn {
+    background-color: #AFA4F3;
     color: #ffffff;
     border: none;
     outline: 0;
@@ -61,25 +62,8 @@ img.grid-item {
     justify-self: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: 600;
-    font-size: 18px;
+    font-size: 16px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
     text-rendering: geometricPrecision;
-}
-
-.viewMyGarden {
-    background-color: #5E559A;
-    color: #ffffff;
-    border: none;
-    outline: 0;
-    border-radius: 10px;
-    padding: 7px 12px;
-    margin: 5px;
-    max-width: fit-content;
-    bottom: 5px;
-    justify-self: center;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-weight: 600;
-    font-size: 24px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
-    text-rendering: geometricPrecision;
+    text-shadow: 1px 1px 2px black;
 }

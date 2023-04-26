@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 
+import ".MyNotes.css"
+
 // component renders Notes from user table in db
 // also allows for updating notes 
 function MyNotes() {

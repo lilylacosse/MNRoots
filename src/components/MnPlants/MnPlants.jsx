@@ -11,6 +11,8 @@ function MnPlants() {
   const history = useHistory();
   const mnPlants = useSelector((store) => store.mnPlants);
 
+  const [addPlant, updateAddPlant] = useState(false)
+
 
   useEffect(() => {
     dispatch({ type: "FETCH_MN_PLANTS" });
@@ -26,6 +28,7 @@ function MnPlants() {
   }
 
   function dispatchPlant(plantId) {
+    disableButton
     dispatch({
       type: "ADD_MY_PLANT",
       payload: plantId
@@ -35,14 +38,14 @@ function MnPlants() {
 
   return (
     <center>
-      <h2>Minnesota Native Plants</h2>
+      <h1>Minnesota Native Plants</h1>
       <div>Peruse through Minnesota's wealth of native plants, save plants you like the most to plant in your native garden</div>
       <br />
       <div>Plants and Plant Data are sourced from the Minnesota Bell Museum</div>
       <br />
-      <button onClick={() => { history.push('/mygarden') }}>View My Garden</button>
+      <button className="viewMyGarden" onClick={() => { history.push('/mygarden') }}>View My Garden</button>
 
-      {/* TO DO - Add CARD features */}
+
       <div className="containerMargin">
         <section className="container">{mnPlants ?
 
@@ -50,7 +53,7 @@ function MnPlants() {
             return (
               <div className="item" key={plant.id}>
                 <h4 className="grid-item genus">{plant.genus}</h4>
-                <img className="grid-item " src={plant.image_url} width="200" height='280' />
+                <img className="grid-item" src={plant.image_url} width="200" height='280' />
                 <div className="grid-item sciName">{plant.scientific_name}</div>
                 <div className="grid-item county"><b>County:</b> {plant.county}</div>
                 <div className="grid-item year"><b>Discovery:</b> {plant.year}</div>
