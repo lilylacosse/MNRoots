@@ -3,11 +3,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 30px 0 30px;
-  background-color: #1b411c;
+  margin: 20px 0 30px;
+  background-color: #87A488;
+  border: 1px solid #7c9c7d;
   overflow: hidden;
+  box-shadow: 10px 10px 30px #738b74,
+    -10px -10px 30px #9bbd9c;
 }
-
 
 .nav a {
   text-decoration: none;
@@ -16,19 +18,19 @@
 .nav-title {
   font-size: 32px;
   font-weight: 700;
-  color: #f2f2f2;
+  color: #12231D;
   padding-left: 10px;
   margin-left: 30px;
 }
 
 .nav-title:hover {
-  color: #87A488;
+  color: #5E559A;
 }
 
 .navLink {
   display: inline-block;
   color: #f2f2f2;
-  background-color: #1b411c;
+  background-color: #87A488;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
@@ -43,5 +45,5 @@
 }
 
 .navLink:hover {
-  color: #87A488;
+  color: #5E559A;
 }

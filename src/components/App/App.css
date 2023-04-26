@@ -2,14 +2,14 @@ html,
 body,
 #react-root {
   height: 100%;
+  background-color: #87A488;
+  color: #12231D
 }
 
 body {
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   margin: 0px;
 }
-
-
 
 /* --------------------------------------------------------------------------------
 Container
@@ -23,38 +23,7 @@ Container
 Button
 -------------------------------------------------------------------------------- */
 
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  border-color: #014041;
-  border-width: 1px 1px 3px;
-  border-radius: 4px;
-  background-color: #00acb0;
-  color: #f8f8f8;
-  font-size: 1.1rem;
-  outline: 0;
-  cursor: pointer;
-}
 
-.btn_sizeMin {
-  min-height: 50px;
-  min-width: 100px;
-}
-
-.btn_sizeSm {
-  padding: 10px 15px;
-  font-size: 0.8rem;
-}
-
-.btn_sizeFull {
-  display: block;
-  width: 100%;
-}
-
-.btn:hover {
-  background-color: #008183;
-  text-decoration: none;
-}
 
 /* This line makes the "Register" and "Login" buttons look like links */
 .btn_asLink {
@@ -93,17 +62,22 @@ Form Treatment
 -------------------------------------------------------------------------------- */
 
 .formPanel {
-  box-sizing: border-box;
-  width: 400px;
-  max-width: 100%;
+  display: block;
+  width: 500px;
+  /* max-width: 100%; */
   padding: 25px;
   margin: 0 auto 20px;
-  background-color: #efefef;
-  border-radius: 3px;
+
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.137);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(15px);
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
 }
 
-input {
+.registerInput {
   margin: 5px;
   margin-bottom: 10px;
 }

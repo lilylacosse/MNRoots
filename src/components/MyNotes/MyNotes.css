@@ -11,10 +11,11 @@
     justify-content: center;
     align-content: center;
     align-items: flex-start;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    box-shadow: 10px 10px 30px #738b74,
+        -10px -10px 30px #9bbd9c;
 }
 
-input {
+.notesInput {
     width: 500px;
     height: 150px;
     background-color: #D9D9D9;
@@ -29,7 +30,6 @@ input {
 
 .editNotesBtn {
     background-color: #5E559A;
-    color: #ffffff;
     border: none;
     outline: 0;
     border-radius: 10px;
