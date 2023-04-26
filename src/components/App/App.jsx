@@ -15,8 +15,8 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import MnPlants from '../MnPlants/MnPlants';
-import MyGarden from '../MyGarden/MyGarden';
-import RegisterPage from '../RegisterPage/RegisterPage';
+import MyGarden from '../MyGarden/MyGarden/MyGarden';
+import RegisterPage from '../RegisterPage';
 
 import './App.css';
 
