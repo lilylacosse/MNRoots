@@ -20,12 +20,11 @@
     grid-template-rows: 5px 280px 37px repeat(2, 20px) 30px;
     row-gap: 5px;
     padding: 10px;
-    background-color: #87A488;
+    background-color: #AFA4F3;
     justify-content: center;
     align-content: center;
     align-items: flex-start;
-    box-shadow: 10px 10px 30px #738b74,
-        -10px -10px 30px #9bbd9c;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 h4.grid-item {
@@ -58,7 +57,7 @@ img.grid-item {
     font-weight: 600;
     font-size: 16px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
-    text-rendering: geometricPrecision;
+
 }
 
 .editPlantsBtn:hover {

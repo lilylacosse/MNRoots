@@ -11,10 +11,26 @@
 .item {
     display: grid;
     border-radius: 15px;
+    border: .1px solid #9b8ef0;
     grid-template-rows: 45px 280px 37px repeat(2, 20px) 30px;
     row-gap: 5px;
     padding: 10px;
+
     background-color: #AFA4F3;
+    justify-content: center;
+    align-content: center;
+    align-items: flex-start;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+
+}
+
+.itemSelected {
+    display: grid;
+    border-radius: 15px;
+    grid-template-rows: 45px 280px 37px repeat(2, 20px) 30px;
+    row-gap: 5px;
+    padding: 10px;
+    background-color: #87A488;
     justify-content: center;
     align-content: center;
     align-items: flex-start;
@@ -49,9 +65,16 @@ img.grid-item {
     text-rendering: geometricPrecision;
 }
 
+.saveToGarden:hover {
+    border: 2px solid #4CAF50;
+}
+
+.saveToGarden:disabled {
+    visibility: hidden;
+}
+
 .viewMyGarden {
-    background-color: #5E559A;
-    color: #ffffff;
+    background-color: #8778ed;
     border: none;
     outline: 0;
     border-radius: 10px;
