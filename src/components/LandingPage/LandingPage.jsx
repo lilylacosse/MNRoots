@@ -4,39 +4,27 @@ import './LandingPage.css';
 
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
+import BenefitsAccordian from '../BenefitsAccordian/BenefitsAccordian';
 
 function LandingPage() {
-  const [heading, setHeading] = useState('Welcome');
-  const history = useHistory();
 
-  const onLogin = (event) => {
-    history.push('/login');
-  };
 
   return (
-    <div className="container">
-      <h2>{heading}</h2>
+    <center>
+      <h1>Discover the unique Native Plants of Minnesota</h1>
+      <h2>We live in interrelation with resilient, highly adapted Ecosystems</h2>
+      <h3>Imagine if we embraced our Regional Ecology</h3>
 
-      <div className="grid">
-        <div className="grid-col grid-col_8">
-          <p>
-            Hmm better work on this
-          </p>
+      <BenefitsAccordian />
 
-
-        </div>
-        <div className="grid-col grid-col_4">
-          <RegisterForm />
-
-          <center>
-            <h4>Already a Member?</h4>
-            <button className="btn btn_sizeSm" onClick={onLogin}>
-              Login
-            </button>
-          </center>
-        </div>
+      <h3>I set out to provide regional and ecosystem specific Native Plant recommendations based on your environment</h3>
+      <div className='information'>
+        <p>I was disappointed to find out that information is not accessible. </p>
+        <p>The lack of cataloged or publicly accessible information on plants native to our regions and ecosystems reinforces that we are deeply disconnected from our environmetns. </p>
       </div>
-    </div>
+      <h3>In lieu of actionable data, please consider this experience</h3>
+      <h2>A Meditation on Harmony between Humanity and the Environment</h2>
+    </center >
   );
 }
 
