@@ -23,7 +23,7 @@ function MnPlantItem({ plant }) {
             <div className="grid-item county"><b>County:</b> {plant.county}</div>
             <div className="grid-item year"><b>Discovery:</b> {plant.year}</div>
             {plant.habitat ? (<div className="grid-item  habitat"><b>Habitat:</b> {plant.habitat}</div>) : (<div></div>)}
-            <button className="grid-item  saveToGarden" onClick={() => dispatchPlant(plant.id)} >Save to My Garden</button>
+            <button className="grid-item  saveToGarden" disabled={isSelected} onClick={() => dispatchPlant(plant.id)} >Save to My Garden</button>
         </div>
     );
 }

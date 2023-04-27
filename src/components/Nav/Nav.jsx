@@ -31,7 +31,7 @@ function Nav() {
               My Garden
             </Link>
 
-            <LogOutButton className="navLink" />
+            <LogOutButton className="navLink logout" />
           </>
         )}
 

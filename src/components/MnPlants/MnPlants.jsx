@@ -19,7 +19,7 @@ function MnPlants() {
 
   return (
     <center>
-      <BodyColor color={'#AFA4F3'} />
+      <BodyColor color={'#8E84CC'} />
       <h1>Minnesota Native Plants</h1>
       <div>Peruse through Minnesota's wealth of native plants, save plants you like the most to plant in your native garden</div>
       <br />

@@ -68,7 +68,7 @@ function MyGarden() {
                                 </div>
                                 <div
                                     className="grid-item county">
-                                    <b>County:</b>{plant.county}
+                                    <b>County:</b> {plant.county}
                                 </div>
                                 <div className="grid-item year">
                                     <b>Discovery:</b> {plant.year}
