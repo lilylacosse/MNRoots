@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import MyNotes from "../MyNotes/MyNotes";
 import "./MyGarden.css"
+import BodyColor from "../../BodyColor/BodyColor";
 
 // component renders favorite plants based on user ID - data comes from users_favorite table in db
 // also allows for deleting plants from MyGarden
@@ -35,7 +36,7 @@ function MyGarden() {
 
     return (
         <center className='myGarden'>
-
+            <BodyColor color={'#87A488'} />
             <h1>My Garden</h1>
 
             <MyNotes />
