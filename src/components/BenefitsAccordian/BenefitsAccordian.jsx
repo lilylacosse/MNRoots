@@ -31,8 +31,7 @@ function BenefitsAccordian() {
                 </div>
             }
 
-            <button class="accordion" onClick={() => setPollinatorBool(!pollinatorBool)}>
-
+            <button class="accordion" onClick={() => setPollinatorBool(!pollinatorBool)}>Pollinators
             </button>
             {
                 pollinatorBool &&
