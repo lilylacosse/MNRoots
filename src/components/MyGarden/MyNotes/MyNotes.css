@@ -1,11 +1,7 @@
-.containerMargin {
-    margin: 0px 25px 25px 25px;
-}
-
 .noteCard {
     display: grid;
+    width: 85%;
     grid-template-rows: 75px, 50px;
-    margin: 20px;
     border-radius: 15px;
     background-color: #87A488;
     justify-content: center;
@@ -23,29 +19,39 @@
 }
 
 .myNotes {
-    margin: 25px;
-    width: 500px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 15px 15px 0;
+    width: inherit;
     height: fit-content;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.137);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(6px);
 }
 
 .editNotesBtn {
+    cursor: pointer;
     background-color: #AFA4F3;
-    border: none;
+    border: .5px solid #9b8ef0;
     outline: 0;
     border-radius: 10px;
     padding: 7px 12px;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     max-width: fit-content;
     bottom: 5px;
+    align-self: right;
     justify-self: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: 600;
     font-size: 16px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
-    text-rendering: geometricPrecision;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
+
 
 }
 
 .editNotesBtn:hover {
-    border: 2px solid #4CAF50;
+    border: 2px solid #5E559A;
 }

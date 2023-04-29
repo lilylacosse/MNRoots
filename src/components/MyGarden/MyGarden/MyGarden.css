@@ -1,3 +1,11 @@
+.h1 {
+    margin: 20px
+}
+
+.h2 {
+    margin: 15px
+}
+
 .myGarden {
     height: 100%;
 }
@@ -17,10 +25,10 @@
     /* border: 2px solid black; */
     display: grid;
     border-radius: 30px;
-    grid-template-rows: 5px 280px 37px repeat(2, 20px) 30px;
-    row-gap: 5px;
+    grid-template-rows: 45px 280px 37px repeat(2, 20px) 30px;
+    row-gap: 10px;
     padding: 10px;
-    background-color: #AFA4F3;
+    background-color: #577558;
     justify-content: center;
     align-content: center;
     align-items: flex-start;
@@ -36,6 +44,7 @@ h4.grid-item {
 
 .sciName {
     font-size: 20px;
+
 }
 
 img.grid-item {
@@ -43,25 +52,25 @@ img.grid-item {
 }
 
 .editPlantsBtn {
+    cursor: pointer;
     background-color: #AFA4F3;
-    border: none;
-    /* border: 2px solid #AFA4F3; */
+    border: .5px solid #9b8ef0;
     outline: 0;
     border-radius: 10px;
     padding: 7px 12px;
-    margin: 10px;
+    margin-bottom: 15px;
     max-width: fit-content;
     bottom: 10px;
     justify-self: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: 600;
     font-size: 16px;
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
 
 }
 
 .editPlantsBtn:hover {
-    border: 2px solid #4CAF50;
+    border: 2px solid #5E559A;
 }
 
 .deleteBtn {

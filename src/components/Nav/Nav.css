@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 20px 10px 30px;
+  margin: 15px;
   background-image: url('/public/images/lady-slipper-flowers-780x522.jpg');
   background-position: center;
   background-size: cover;
@@ -40,7 +40,6 @@
 
 .navLink {
   display: inline-block;
-  background: #000;
   text-align: center;
   padding: 10px 10px;
   margin: 5px;
@@ -50,7 +49,6 @@
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   /* these last two make the logout button in
   the nav bar look like another link */
-  border: none;
   cursor: pointer;
   outline: 0;
   border: 1px solid rgba(255, 255, 255, .25);
@@ -61,13 +59,41 @@
 
 }
 
-.logout {
-  margin-left: 40px;
-  margin-right: 15px;
-}
-
 .navLink:hover {
   color: #153816;
   border: 2px solid #4CAF50;
   text-shadow: .1px .1px black;
+}
+
+.nav-register {
+  display: inline-block;
+  text-align: center;
+  padding: 10px 10px;
+  margin: 0 50px 0 30px;
+  text-decoration: none;
+  font-size: 28px;
+  color: #12231D;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  /* these last two make the logout button in
+    the nav bar look like another link */
+  cursor: pointer;
+  outline: 0;
+  border: 3px solid #4CAF50;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.137);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+
+}
+
+.nav-register:hover {
+  color: #000000;
+  border: 5px solid #4CAF50;
+  text-shadow: .1px .1px black;
+  backdrop-filter: blur(30px);
+}
+
+.logout {
+  margin-left: 40px;
+  margin-right: 15px;
 }

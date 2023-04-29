@@ -30,7 +30,7 @@ function App() {
 
   return (
     <div>
-      <BodyColor color={'#8E84CC'} />
+      <BodyColor color={'#AFA4F3'} />
       <Router>
         <div>
           <Nav />

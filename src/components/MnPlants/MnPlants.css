@@ -51,12 +51,13 @@ img.grid-item {
 }
 
 .saveToGarden {
-    background-color: #416c42;
+    background-color: #577558;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     border: none;
     outline: 0;
     border-radius: 10px;
     padding: 7px 12px;
-    margin: 5px;
+    margin: 10px;
     max-width: fit-content;
     bottom: 5px;
     justify-self: center;
@@ -74,7 +75,9 @@ img.grid-item {
 }
 
 .viewMyGarden {
-    background-color: #8778ed;
+    background-color: #AFA4F3;
+    border: .5px solid #9b8ef0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     border: none;
     outline: 0;
     border-radius: 10px;
@@ -82,8 +85,11 @@ img.grid-item {
     margin: 5px;
     max-width: fit-content;
     bottom: 5px;
-    justify-self: center;
     font-size: 24px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
-    text-rendering: geometricPrecision;
+
+}
+
+.viewMyGarden:hover {
+    border: 2px solid #5E559A;
 }
