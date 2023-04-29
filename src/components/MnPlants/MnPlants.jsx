@@ -26,11 +26,9 @@ function MnPlants() {
         Peruse through Minnesota's wealth of native plants, save plants you like
         the most to plant in your native garden
       </div>
-      <br />
       <div>
         Plants and Plant Data are sourced from the Minnesota Bell Museum
       </div>
-      <br />
       <button
         className="viewMyGarden"
         onClick={() => {
@@ -39,7 +37,9 @@ function MnPlants() {
       >
         View My Garden
       </button>
+      <select>
 
+      </select>
       <div className="containerMargin">
         <section className="container">
           {mnPlants ? (

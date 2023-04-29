@@ -8,8 +8,10 @@ const {
 /**
  * GET route template
  */
-router.get("/", rejectUnauthenticated, (req, res) => {
-  const sqlText = `select * from native_plants`;
+router.get("/:columnToOrderBy", rejectUnauthenticated, (req, res) => {
+  const columnToOrderBy = req.params.columnToOrderBy;
+  // console.log(`req.params:`, req.params.columnToOrderBy);
+  const sqlText = `select * from native_plants order by ${columnToOrderBy} asc`;
   pool
     .query(sqlText)
     .then((response) => res.send(response.rows))
