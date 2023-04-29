@@ -15,7 +15,10 @@ router.post("/:plantId", rejectUnauthenticated, (req, res) => {
   pool
     .query(sqlQuery, queryValues)
     .then((response) => res.sendStatus(201))
-    .catch((err) => res.sendStatus(500));
+    .catch((err) => {
+      console.log(`err:`, err);
+      res.sendStatus(500);
+    });
 });
 
 // GET route - retrieves users_favs from db based on user ID
