@@ -53,7 +53,6 @@ img.grid-item {
 
 img.grid-item:hover {
     transform: scale(2.0);
-    display: relative;
 }
 
 .sciName {

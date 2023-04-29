@@ -49,6 +49,12 @@ h4.grid-item {
 
 img.grid-item {
     justify-self: center;
+    transition: transform .2s ease-out;
+    cursor: pointer;
+}
+
+img.grid-item:hover {
+    transform: scale(2.0);
 }
 
 .editPlantsBtn {
