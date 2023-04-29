@@ -12,6 +12,7 @@ function MnPlants() {
   const history = useHistory();
   const mnPlants = useSelector((store) => store.mnPlants);
   const myGarden = useSelector((store) => store.myGarden);
+  const [filterBy, setFilterBy] = useState('Select Filter By')
 
   useEffect(() => {
     dispatch({
@@ -20,6 +21,14 @@ function MnPlants() {
     });
     dispatch({ type: "FETCH_MY_GARDEN" });
   }, []);
+
+  function handleFilterBy(event) {
+    setFilterBy(event.target.value);
+    dispatch({
+      type: "FETCH_MN_PLANTS",
+      payload: event.target.value
+    })
+  }
 
   return (
     <center>
@@ -40,9 +49,13 @@ function MnPlants() {
       >
         View My Garden
       </button>
-      <select>
-
+      <label for="mnPlants">Filter Plants By:</label>
+      <select name="mnPlants" id='mnPlants' value={filterBy} onChange={handleFilterBy}>
+        <option value="genus">Genus</option>
+        <option value="year">Year</option>
+        <option value="county">County</option>
       </select>
+
       <div className="containerMargin">
         <section className="container">
           {mnPlants ? (
