@@ -19,7 +19,7 @@ function MyGarden() {
     const [deleteBoolean, setDeleteBoolean] = useState(false)
     // console.log(`myNotes:`, myNotes);
     // console.log(`myGarden:`, myGarden);
-
+    console.log(`myGardne:`, myGarden);
     function engageDeleteMode() {
         setDeleteBoolean(!deleteBoolean)
     }

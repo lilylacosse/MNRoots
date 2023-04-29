@@ -16,6 +16,7 @@ function MnPlants() {
   const [filterBy, setFilterBy] = useState('Select Filter By')
   const [searchBy, setSearchBy] = useState('')
 
+  console.log(`MINNESTOA PLANTS:`, mnPlants);
   useEffect(() => {
     dispatch({
       type: "FETCH_MN_PLANTS",
@@ -85,12 +86,15 @@ function MnPlants() {
         <section className="container">
           {mnPlants ? (
             mnPlants.map((plant) => {
-              // myGarden.map((plantToCompare) => {
-              //   if (plant.id === plantToCompare.plant_id) {
-              //     return <MnPlantItem plant={plant} selected={true} />;
-              //   }
-              // })
-              return <MnPlantItem plant={plant} />;
+              let inGarden = false;
+              myGarden.map((plantToCompare) => {
+                if (plant.id === plantToCompare.plant_id) {
+                  inGarden = true
+                }
+                // console.log(`inGarden:`, inGarden);
+              })
+              // console.log(`plant.id MAPPED:`, plant.id);
+              return <MnPlantItem plant={plant} selected={inGarden} />;
             })
           ) : (
             <div>...Loading</div>
