@@ -6,7 +6,7 @@ const {
 } = require("../modules/authentication-middleware");
 
 /**
- * GET route template
+ * GET routes
  */
 router.get("/:columnToOrderBy", rejectUnauthenticated, (req, res) => {
   const columnToOrderBy = req.params.columnToOrderBy;
@@ -21,6 +21,19 @@ router.get("/:columnToOrderBy", rejectUnauthenticated, (req, res) => {
     });
 });
 
+router.get("/search/:searchBy", rejectUnauthenticated, (req, res) => {
+  const searchBy = req.params.searchBy;
+  // console.log(`req.params:`, req.params.columnToOrderBy);
+  const sqlText = `select * from native_plants
+where concat (genus, scientific_name, year, habitat, county) ilike '%${searchBy}%'`;
+  pool
+    .query(sqlText)
+    .then((response) => res.send(response.rows))
+    .catch((err) => {
+      console.log(`GET all plants error:`, err);
+      res.sendStatus(500);
+    });
+});
 /**
  * POST route template
  */

@@ -12,7 +12,9 @@ function MnPlants() {
   const history = useHistory();
   const mnPlants = useSelector((store) => store.mnPlants);
   const myGarden = useSelector((store) => store.myGarden);
+
   const [filterBy, setFilterBy] = useState('Select Filter By')
+  const [searchBy, setSearchBy] = useState('')
 
   useEffect(() => {
     dispatch({
@@ -28,6 +30,22 @@ function MnPlants() {
       type: "FETCH_MN_PLANTS",
       payload: event.target.value
     })
+  }
+
+  function handleSearchBy(event) {
+    setSearchBy(event.target.value)
+    console.log(`search BY:`, event.target.value);
+    dispatch({
+      type: "SEARCH_MN_PLANTS",
+      payload: event.target.value
+    })
+  }
+  function clearSearch() {
+    setSearchBy("")
+    dispatch({
+      type: "FETCH_MN_PLANTS",
+      payload: "genus"
+    });
   }
 
   return (
@@ -49,13 +67,20 @@ function MnPlants() {
       >
         View My Garden
       </button>
+
+      <br />
+
       <label for="mnPlants">Filter Plants By:</label>
       <select name="mnPlants" id='mnPlants' value={filterBy} onChange={handleFilterBy}>
         <option value="genus">Genus</option>
         <option value="year">Year</option>
         <option value="county">County</option>
       </select>
-
+      <br />
+      <label >Search:</label>
+      <input type="text" placeholder={searchBy} onChange={() => handleSearchBy(event)} />
+      <br />
+      <button onClick={clearSearch}>Clear Search</button>
       <div className="containerMargin">
         <section className="container">
           {mnPlants ? (

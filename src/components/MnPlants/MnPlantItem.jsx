@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 
 function MnPlantItem({ plant, selected }) {
-    console.log(`plant:`, plant, selected);
+    // console.log(`plant:`, plant, selected);
     const dispatch = useDispatch();
     const [isSelected, setIsSelected] = useState(false);
 

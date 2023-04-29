@@ -14,10 +14,21 @@ function* fetchMnPlants(action) {
     console.log("MN Plants GET request failed", error);
   }
 }
+
+function* searchMnPlants(action) {
+  try {
+    const mnPlants = yield axios.get(`/api/mnplants/search/${action.payload}`);
+    console.log(`mnPlants SEARCH in Saga:`, mnPlants);
+    yield put({ type: "SET_MN_PLANTS", payload: mnPlants.data });
+  } catch (error) {
+    console.log("MN Plants GET request failed", error);
+  }
+}
 // fetchMnPlants saga retrieves all MN Native plants from native_plants table in db
 // all plants are then saved to mnPlants reducer
 function* mnPlantSaga() {
   yield takeLatest("FETCH_MN_PLANTS", fetchMnPlants);
+  yield takeLatest("SEARCH_MN_PLANTS", searchMnPlants);
 }
 
 export default mnPlantSaga;
