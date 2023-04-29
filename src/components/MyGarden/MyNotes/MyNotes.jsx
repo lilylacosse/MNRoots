@@ -46,12 +46,12 @@ function MyNotes() {
 
     return (
         <center >
-            <h2>Notes</h2>
+            <h2 className='h2'>Notes</h2>
             <div className="containerMargin">
                 <section className="noteCard">
 
                     {editBoolean ? (<form onSubmit={() => saveNotes(myNotes)}>
-                        <input
+                        <textarea
                             className='notesInput'
                             type='text'
                             size='50'

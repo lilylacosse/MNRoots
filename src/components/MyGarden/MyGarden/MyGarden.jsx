@@ -37,18 +37,18 @@ function MyGarden() {
     return (
         <center className='myGarden'>
             <BodyColor color={'#87A488'} />
-            <h1>My Garden</h1>
+            <h1 className="h1">My Garden</h1>
 
             <MyNotes />
 
-            <h2>Plants</h2>
-
-            <button
-                className="editPlantsBtn"
-                onClick={engageDeleteMode}>
-                {deleteBoolean ? 'View Plants' : 'Edit Plants'}
-            </button>
+            <h2 className="h2">Plants</h2>
             <div className="containerMargin">
+                <button
+                    className="editPlantsBtn"
+                    onClick={engageDeleteMode}>
+                    {deleteBoolean ? 'View Plants' : 'Edit Plants'}
+                </button>
+
                 <section className="myContainer">
                     {myGarden ? (
                         myGarden.map((plant) => {
