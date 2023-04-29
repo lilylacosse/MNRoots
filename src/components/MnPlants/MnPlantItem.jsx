@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 
-
-function MnPlantItem({ plant }) {
-    console.log(`plant:`, plant);
+function MnPlantItem({ plant, selected }) {
+    console.log(`plant:`, plant, selected);
     const dispatch = useDispatch();
     const [isSelected, setIsSelected] = useState(false);
+
     function dispatchPlant(plantId) {
         setIsSelected(!isSelected)
         dispatch({
             type: "ADD_MY_PLANT",
             payload: plantId
         })
-
     }
+
     return (
         <div className={isSelected ? "itemSelected" : "item"} key={plant.id}>
             <h4 className="grid-item genus">{plant.genus}</h4>

@@ -3,42 +3,61 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import "./MnPlants.css"
+import "./MnPlants.css";
 import MnPlantItem from "./MnPlantItem";
 import BodyColor from "../BodyColor/BodyColor";
 
 function MnPlants() {
-
   const dispatch = useDispatch();
   const history = useHistory();
   const mnPlants = useSelector((store) => store.mnPlants);
+  const myGarden = useSelector((store) => store.myGarden);
 
   useEffect(() => {
     dispatch({ type: "FETCH_MN_PLANTS" });
+    dispatch({ type: "FETCH_MY_GARDEN" });
   }, []);
 
   return (
     <center>
-      <BodyColor color={'#8E84CC'} />
+      <BodyColor color={"#8E84CC"} />
       <h1>Minnesota Native Plants</h1>
-      <div>Peruse through Minnesota's wealth of native plants, save plants you like the most to plant in your native garden</div>
+      <div>
+        Peruse through Minnesota's wealth of native plants, save plants you like
+        the most to plant in your native garden
+      </div>
       <br />
-      <div>Plants and Plant Data are sourced from the Minnesota Bell Museum</div>
+      <div>
+        Plants and Plant Data are sourced from the Minnesota Bell Museum
+      </div>
       <br />
-      <button className="viewMyGarden" onClick={() => { history.push('/mygarden') }}>View My Garden</button>
-
+      <button
+        className="viewMyGarden"
+        onClick={() => {
+          history.push("/mygarden");
+        }}
+      >
+        View My Garden
+      </button>
 
       <div className="containerMargin">
-        <section className="container">{mnPlants ?
-          mnPlants.map((plant) => {
-            console.log(`in PLANT MAP:`, plant);
-            return <MnPlantItem plant={plant} />
-          }) : <div>...Loading</div>
-        }
+        <section className="container">
+          {mnPlants ? (
+            mnPlants.map((plant) => {
+              // myGarden.map((plantToCompare) => {
+              //   if (plant.id === plantToCompare.plant_id) {
+              //     return <MnPlantItem plant={plant} selected={true} />;
+              //   }
+              // })
+              return <MnPlantItem plant={plant} />;
+            })
+          ) : (
+            <div>...Loading</div>
+          )}
         </section>
       </div>
-    </center >
+    </center>
   );
-};
+}
 
 export default MnPlants;
