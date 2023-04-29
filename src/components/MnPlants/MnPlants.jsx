@@ -14,7 +14,10 @@ function MnPlants() {
   const myGarden = useSelector((store) => store.myGarden);
 
   useEffect(() => {
-    dispatch({ type: "FETCH_MN_PLANTS" });
+    dispatch({
+      type: "FETCH_MN_PLANTS",
+      payload: "genus"
+    });
     dispatch({ type: "FETCH_MY_GARDEN" });
   }, []);
 

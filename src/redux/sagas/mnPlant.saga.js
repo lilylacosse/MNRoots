@@ -5,9 +5,9 @@ import { put, takeLatest } from "redux-saga/effects";
 
 // all sagas in this file communicate with /api/mnplants route
 
-function* fetchMnPlants() {
+function* fetchMnPlants(action) {
   try {
-    const mnPlants = yield axios.get("/api/mnplants");
+    const mnPlants = yield axios.get(`/api/mnplants/${action.payload}`);
     console.log(`mnPlants in Saga:`, mnPlants);
     yield put({ type: "SET_MN_PLANTS", payload: mnPlants.data });
   } catch (error) {
