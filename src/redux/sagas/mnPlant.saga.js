@@ -5,10 +5,20 @@ import { put, takeLatest } from "redux-saga/effects";
 
 // all sagas in this file communicate with /api/mnplants route
 
-function* fetchMnPlants() {
+function* fetchMnPlants(action) {
   try {
-    const mnPlants = yield axios.get("/api/mnplants");
+    const mnPlants = yield axios.get(`/api/mnplants/${action.payload}`);
     console.log(`mnPlants in Saga:`, mnPlants);
+    yield put({ type: "SET_MN_PLANTS", payload: mnPlants.data });
+  } catch (error) {
+    console.log("MN Plants GET request failed", error);
+  }
+}
+
+function* searchMnPlants(action) {
+  try {
+    const mnPlants = yield axios.get(`/api/mnplants/search/${action.payload}`);
+    console.log(`mnPlants SEARCH in Saga:`, mnPlants);
     yield put({ type: "SET_MN_PLANTS", payload: mnPlants.data });
   } catch (error) {
     console.log("MN Plants GET request failed", error);
@@ -18,6 +28,7 @@ function* fetchMnPlants() {
 // all plants are then saved to mnPlants reducer
 function* mnPlantSaga() {
   yield takeLatest("FETCH_MN_PLANTS", fetchMnPlants);
+  yield takeLatest("SEARCH_MN_PLANTS", searchMnPlants);
 }
 
 export default mnPlantSaga;

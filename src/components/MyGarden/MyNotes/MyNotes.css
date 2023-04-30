@@ -1,0 +1,57 @@
+.noteCard {
+    display: grid;
+    width: 85%;
+    grid-template-rows: 75px, 50px;
+    border-radius: 15px;
+    background-color: #87A488;
+    justify-content: center;
+    align-content: center;
+    align-items: flex-start;
+    box-shadow: 10px 10px 30px #738b74,
+        -10px -10px 30px #9bbd9c;
+}
+
+.notesInput {
+    width: 500px;
+    height: 150px;
+    background-color: #D9D9D9;
+    border: none;
+}
+
+.myNotes {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 15px 15px 0;
+    width: inherit;
+    height: fit-content;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.137);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(6px);
+}
+
+.editNotesBtn {
+    cursor: pointer;
+    background-color: #AFA4F3;
+    border: .5px solid #9b8ef0;
+    outline: 0;
+    border-radius: 10px;
+    padding: 7px 12px;
+    margin-bottom: 10px;
+    max-width: fit-content;
+    bottom: 5px;
+    align-self: right;
+    justify-self: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: 600;
+    font-size: 16px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
+
+
+}
+
+.editNotesBtn:hover {
+    border: 2px solid #5E559A;
+}

@@ -1,16 +1,173 @@
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    grid-gap: 20px;
+.containerMargin {
+    margin: 0px 50px 50px 50px;
 }
 
-.card {
+.container {
     display: grid;
-    grid-template-rows: max-content 200px 1fr;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 25px;
 }
 
-.card img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
+.searchAndFilter {
+    border-radius: 20px;
+    padding: 10px;
+    margin: 10px;
+    width: 50%;
+    background: #8E84CC;
+    box-shadow: 20px 20px 60px #7970ad,
+        -20px -20px 60px #a398eb;
+}
+
+.searchFilterCard {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin: 5px;
+    width: inherit;
+    height: fit-content;
+    padding: 15px 50px 10px 50px;
+    border: 1px solid rgba(255, 255, 255, .25);
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.137);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(6px);
+}
+
+
+.filterInput {
+    background-color: #D9D9D9;
+    border: none;
+    margin: 0 0 10px;
+}
+
+.filterInput:hover {
+    border: none;
+    border: 2px solid #4CAF50;
+}
+
+.searchInput {
+    background-color: #D9D9D9;
+    border: none;
+    margin: 0 0 5px;
+}
+
+.searchInput:hover {
+    border: none;
+    border: 2px solid #4CAF50;
+}
+
+.item {
+    display: grid;
+    border-radius: 15px;
+    border: .1px solid #9b8ef0;
+    grid-template-rows: 45px 280px 50px repeat(2, 20px) 30px;
+    row-gap: 5px;
+    padding: 10px;
+    background-color: #AFA4F3;
+    justify-content: center;
+    align-content: center;
+    align-items: flex-start;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+
+}
+
+.itemSelected {
+    display: grid;
+    border-radius: 15px;
+    grid-template-rows: 45px 280px 60px repeat(2, 20px) 30px;
+    row-gap: 5px;
+    padding: 10px;
+    background-color: #87A488;
+    justify-content: center;
+    align-content: center;
+    align-items: flex-start;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+
+}
+
+h4.grid-item {
+    font-size: 32px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    align-self: flex-start;
+}
+
+
+img.grid-item {
+    justify-self: center;
+    transition: transform .2s ease-out;
+    cursor: pointer;
+}
+
+img.grid-item:hover {
+    transform: scale(2.0);
+}
+
+.grid-item .sciName {
+    grid-row-gap: 10px;
+}
+
+.saveToGarden {
+    background-color: #87A488;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: 1px solid #577558;
+    outline: 0;
+    border-radius: 10px;
+    padding: 7px 12px;
+    margin: 10px;
+    max-width: fit-content;
+    bottom: 5px;
+    justify-self: center;
+    font-size: 18px;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.15);
+    text-rendering: geometricPrecision;
+}
+
+.saveToGarden:hover {
+    border: 2px solid #4CAF50;
+}
+
+.saveToGarden:disabled {
+    visibility: hidden;
+}
+
+.viewMyGarden {
+    background-color: #AFA4F3;
+    border: .5px solid #9b8ef0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: none;
+    outline: 0;
+    border-radius: 10px;
+    padding: 7px 12px;
+    margin: 5px;
+    max-width: fit-content;
+    bottom: 5px;
+    font-size: 20px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+
+}
+
+.viewMyGarden:hover {
+    border: 2px solid #5E559A;
+    background-color: #87A488;
+}
+
+.clearSearchBtn {
+    background-color: #AFA4F3;
+    border: .5px solid #9b8ef0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border: none;
+    outline: 0;
+    border-radius: 10px;
+    padding: 7px 12px;
+    margin: 5px;
+    max-width: fit-content;
+    bottom: 5px;
+    font-size: 16px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.clearSearchBtn:hover {
+    border: 2px solid #4CAF50;
 }

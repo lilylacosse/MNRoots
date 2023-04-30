@@ -31,6 +31,7 @@ function RegisterForm() {
         <label htmlFor="username">
           Username:
           <input
+            className='registerInput'
             type="text"
             name="username"
             value={username}
@@ -43,6 +44,7 @@ function RegisterForm() {
         <label htmlFor="password">
           Password:
           <input
+            className='register'
             type="password"
             name="password"
             value={password}
@@ -52,7 +54,7 @@ function RegisterForm() {
         </label>
       </div>
       <div>
-        <input className="btn" type="submit" name="submit" value="Register" />
+        <input className="btn saveToGarden" type="submit" name="submit" value="Register" />
       </div>
     </form>
   );

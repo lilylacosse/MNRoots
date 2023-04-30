@@ -3,67 +3,108 @@ import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import MnPlants
+import "./MnPlants.css";
+import MnPlantItem from "./MnPlantItem";
+import BodyColor from "../BodyColor/BodyColor";
 
 function MnPlants() {
-
   const dispatch = useDispatch();
   const history = useHistory();
   const mnPlants = useSelector((store) => store.mnPlants);
+  const myGarden = useSelector((store) => store.myGarden);
 
+  const [filterBy, setFilterBy] = useState('Select Filter By')
+  const [searchBy, setSearchBy] = useState('')
 
+  console.log(`MINNESTOA PLANTS:`, mnPlants);
   useEffect(() => {
-    dispatch({ type: "FETCH_MN_PLANTS" });
+    dispatch({
+      type: "FETCH_MN_PLANTS",
+      payload: "genus"
+    });
+    dispatch({ type: "FETCH_MY_GARDEN" });
   }, []);
 
-  const selectedPlants = [];
-  // if plant id is in selectedPlants array, conditionally render that card a new color 
-
-  function updateSelectedPlants(newFavPlant) {
-    console.log(`selectedPlants OG:`, selectedPlants);
-    selectedPlants.push(newFavPlant);
-    console.log(`selectedPlants Now:`, selectedPlants);
+  function handleFilterBy(event) {
+    setFilterBy(event.target.value);
+    dispatch({
+      type: "FETCH_MN_PLANTS",
+      payload: event.target.value
+    })
   }
 
-  function dispatchPlant(plantId) {
+  function handleSearchBy(event) {
+    setSearchBy(event.target.value)
+    console.log(`search BY:`, event.target.value);
     dispatch({
-      type: "ADD_MY_PLANT",
-      payload: plantId
+      type: "SEARCH_MN_PLANTS",
+      payload: event.target.value
     })
-    updateSelectedPlants(plantId)
+  }
+  function clearSearch() {
+    setSearchBy("")
+    dispatch({
+      type: "FETCH_MN_PLANTS",
+      payload: "genus"
+    });
   }
 
   return (
     <center>
-      <h2>Minnesota Native Plants</h2>
-      <div>Peruse through Minnesota's wealth of native plants, save plants you like the most to plant in your native garden</div>
+      <BodyColor color={"#8E84CC"} />
+      <h1>Minnesota Native Plants</h1>
+      <h3>
+        Which plants speak to you?
+      </h3>
+      <h4></h4>
+      <div>
+        Minnesota Bell Museum
+      </div>
+      <button
+        className="viewMyGarden"
+        onClick={() => {
+          history.push("/mygarden");
+        }}
+      >
+        View My Garden
+      </button>
       <br />
-      <div>Plants and Plant Data are sourced from the Minnesota Bell Museum</div>
-      <br />
-      <button onClick={() => { history.push('/mygarden') }}>View My Garden</button>
-
-      <br />
-      {/* TO DO - Add CARD features */}
-      <div className="cards">{mnPlants ?
-
-        mnPlants.map((plant) => {
-          return (
-            <div className="card" key={plant.id}>
-              <h4>{plant.genus}</h4>
-              <img src={plant.image_url} width="200" height='280' />
-              <div>{plant.scientific_name}</div>
-              <div><b>County:</b> {plant.county}</div>
-              <div><b>Discovery:</b> {plant.year}</div>
-              {plant.habitat && (<div><b>Habitat:</b> {plant.habitat}</div>)}
-              <br />                            <button onClick={() => dispatchPlant(plant.id)} >Save to My Garden</button>
-            </div>
-          );
-        })
-        : <div>Loading</div>
-      }
+      <div className="searchAndFilter">
+        <div className="searchFilterCard">
+          <label for="mnPlants"><b>Filter Plants By: </b></label>
+          <select className="filterInput" name="mnPlants" id='mnPlants' value={filterBy} onChange={handleFilterBy}>
+            <option value="genus">Genus</option>
+            <option value="year">Year</option>
+            <option value="county">County</option>
+          </select>
+          <br />
+          <label><b>Search: </b></label>
+          <input className="searchInput" type="text" placeholder={searchBy} onChange={() => handleSearchBy(event)} />
+          <br />
+          <button className="clearSearchBtn" onClick={clearSearch}>Clear Search</button>
+        </div>
+      </div>
+      <div className="containerMargin">
+        <section className="container">
+          {mnPlants ? (
+            mnPlants.map((plant) => {
+              let inGarden = false;
+              myGarden.map((plantToCompare) => {
+                if (plant.id === plantToCompare.plant_id) {
+                  inGarden = true
+                }
+                // console.log(`inGarden:`, inGarden);
+              })
+              // console.log(`plant.id MAPPED:`, plant.id);
+              return <MnPlantItem plant={plant} selected={inGarden} />;
+            })
+          ) : (
+            <div>...Loading</div>
+          )}
+        </section>
       </div>
     </center>
-  )
-};
+  );
+}
 
 export default MnPlants;

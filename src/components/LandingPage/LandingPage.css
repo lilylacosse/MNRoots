@@ -1,80 +1,60 @@
-/* --------------------------------------------------------------------------------
-Grid
--------------------------------------------------------------------------------- */
-
-.grid {
-  display: flex;
-  flex: 0 1 auto;
-  /* defaults to 'row' */
-  flex-direction: row;
-  flex-wrap: wrap;
-  /* defaults to 'flex-start' */
-  justify-content: flex-start;
-  align-items: flex-start;
+.information {
+  display: block;
+  width: 50%;
+  font-size: large;
 }
 
-.grid-col {
-  flex: 0 0 auto;
-  padding: 0 0.5rem 0.5rem;
-  box-sizing: border-box;
+.accordianContainer {
+  display: block;
+  width: 70%;
 }
 
-.grid-col_1 {
-  flex-basis: 8.33333333%;
-  max-width: 8.33333333%;
+.accordion {
+  border-radius: 15px;
+  background-image: url('/public/bigstock-Wildflowers-On-A-Summer-Meadow-363800704-1024x683.jpg');
+  background-blend-mode: lighten;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-position: center;
+  background-size: cover;
+  backdrop-filter: blur(10px);
+  margin: 10px;
+  color: #000;
+  font-size: 32px;
+  cursor: pointer;
+  width: 80%;
+  text-align: center;
+  border: 2px;
+  outline: none;
+  transition: 0.4s;
 }
 
-.grid-col_2 {
-  flex-basis: 16.66666667%;
-  max-width: 16.66666667%;
+.accordion-btn {
+  padding: 5px 60px 5px 60px;
+  margin: 5px;
+  font-size: 32px;
+  color: #12231D;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  cursor: pointer;
+  outline: 0;
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.137);
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(6px);
 }
 
-.grid-col_3 {
-  flex-basis: 25%;
-  max-width: 25%;
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active,
+.accordion-btn:hover {
+  backdrop-filter: blur(25px);
+  border: 2px solid #4CAF50;
 }
 
-.grid-col_4 {
-  flex-basis: 33.33333333%;
-  max-width: 33.33333333%;
-}
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 15px;
+  border-radius: 15px;
+  background-color: #87A488;
+  width: 80%;
 
-.grid-col_5 {
-  flex-basis: 41.66666667%;
-  max-width: 41.66666667%;
-}
-
-.grid-col_6 {
-  flex-basis: 50%;
-  max-width: 50%;
-}
-
-.grid-col_7 {
-  flex-basis: 58.33333333%;
-  max-width: 58.33333333%;
-}
-
-.grid-col_8 {
-  flex-basis: 66.66666667%;
-  max-width: 66.66666667%;
-}
-
-.grid-col_9 {
-  flex-basis: 75%;
-  max-width: 75%;
-}
-
-.grid-col_10 {
-  flex-basis: 83.33333333%;
-  max-width: 83.33333333%;
-}
-
-.grid-col_11 {
-  flex-basis: 91.66666667%;
-  max-width: 91.66666667%;
-}
-
-.grid-col_12 {
-  flex-basis: 100%;
-  max-width: 100%;
 }

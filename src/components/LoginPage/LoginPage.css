@@ -1,0 +1,23 @@
+.saveToGarden {
+    background-color: #577558;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border: none;
+    outline: 0;
+    border-radius: 10px;
+    padding: 7px 12px;
+    margin: 10px;
+    max-width: fit-content;
+    bottom: 5px;
+    justify-self: center;
+    font-size: 18px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    text-rendering: geometricPrecision;
+}
+
+.saveToGarden:hover {
+    border: 2px solid #4CAF50;
+}
+
+.saveToGarden:disabled {
+    visibility: hidden;
+}
