@@ -53,12 +53,12 @@ function MnPlants() {
     <center>
       <BodyColor color={"#8E84CC"} />
       <h1>Minnesota Native Plants</h1>
+      <h3>
+        Which plants speak to you?
+      </h3>
+      <h4></h4>
       <div>
-        Peruse through Minnesota's wealth of native plants, save plants you like
-        the most to plant in your native garden
-      </div>
-      <div>
-        Plants and Plant Data are sourced from the Minnesota Bell Museum
+        Minnesota Bell Museum
       </div>
       <button
         className="viewMyGarden"

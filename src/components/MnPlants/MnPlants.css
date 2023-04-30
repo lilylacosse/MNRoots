@@ -59,7 +59,7 @@
     display: grid;
     border-radius: 15px;
     border: .1px solid #9b8ef0;
-    grid-template-rows: 45px 280px 37px repeat(2, 20px) 30px;
+    grid-template-rows: 45px 280px 50px repeat(2, 20px) 30px;
     row-gap: 5px;
     padding: 10px;
     background-color: #AFA4F3;
@@ -73,7 +73,7 @@
 .itemSelected {
     display: grid;
     border-radius: 15px;
-    grid-template-rows: 45px 280px 37px repeat(2, 20px) 30px;
+    grid-template-rows: 45px 280px 60px repeat(2, 20px) 30px;
     row-gap: 5px;
     padding: 10px;
     background-color: #87A488;
@@ -102,8 +102,8 @@ img.grid-item:hover {
     transform: scale(2.0);
 }
 
-.sciName {
-    margin-bottom: 1px;
+.grid-item .sciName {
+    grid-row-gap: 10px;
 }
 
 .saveToGarden {
