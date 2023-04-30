@@ -68,20 +68,22 @@ function MnPlants() {
       >
         View My Garden
       </button>
-
       <br />
-
-      <label for="mnPlants">Filter Plants By:</label>
-      <select name="mnPlants" id='mnPlants' value={filterBy} onChange={handleFilterBy}>
-        <option value="genus">Genus</option>
-        <option value="year">Year</option>
-        <option value="county">County</option>
-      </select>
-      <br />
-      <label >Search:</label>
-      <input type="text" placeholder={searchBy} onChange={() => handleSearchBy(event)} />
-      <br />
-      <button onClick={clearSearch}>Clear Search</button>
+      <div className="searchAndFilter">
+        <div className="searchFilterCard">
+          <label for="mnPlants"><b>Filter Plants By: </b></label>
+          <select className="filterInput" name="mnPlants" id='mnPlants' value={filterBy} onChange={handleFilterBy}>
+            <option value="genus">Genus</option>
+            <option value="year">Year</option>
+            <option value="county">County</option>
+          </select>
+          <br />
+          <label><b>Search: </b></label>
+          <input className="searchInput" type="text" placeholder={searchBy} onChange={() => handleSearchBy(event)} />
+          <br />
+          <button className="clearSearchBtn" onClick={clearSearch}>Clear Search</button>
+        </div>
+      </div>
       <div className="containerMargin">
         <section className="container">
           {mnPlants ? (
