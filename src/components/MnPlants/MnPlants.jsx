@@ -13,15 +13,19 @@ function MnPlants() {
   const mnPlants = useSelector((store) => store.mnPlants);
   const myGarden = useSelector((store) => store.myGarden);
 
-  const [filterBy, setFilterBy] = useState('Select Filter By')
-  const [searchBy, setSearchBy] = useState('')
+  const [filterBy, setFilterBy] = useState("Select Filter By");
+  const [searchBy, setSearchBy] = useState("");
 
   console.log(`MINNESTOA PLANTS:`, mnPlants);
   useEffect(() => {
     dispatch({
       type: "FETCH_MN_PLANTS",
-      payload: "genus"
+      payload: "genus",
     });
+    dispatch({ type: "FETCH_MY_GARDEN" });
+  }, []);
+
+  useEffect(() => {
     dispatch({ type: "FETCH_MY_GARDEN" });
   }, []);
 
@@ -29,23 +33,23 @@ function MnPlants() {
     setFilterBy(event.target.value);
     dispatch({
       type: "FETCH_MN_PLANTS",
-      payload: event.target.value
-    })
+      payload: event.target.value,
+    });
   }
 
   function handleSearchBy(event) {
-    setSearchBy(event.target.value)
+    setSearchBy(event.target.value);
     console.log(`search BY:`, event.target.value);
     dispatch({
       type: "SEARCH_MN_PLANTS",
-      payload: event.target.value
-    })
+      payload: event.target.value,
+    });
   }
   function clearSearch() {
-    setSearchBy("")
+    setSearchBy("");
     dispatch({
       type: "FETCH_MN_PLANTS",
-      payload: "genus"
+      payload: "genus",
     });
   }
 
@@ -53,13 +57,9 @@ function MnPlants() {
     <center>
       <BodyColor color={"#8E84CC"} />
       <h1>Minnesota Native Plants</h1>
-      <h3>
-        Which plants speak to you?
-      </h3>
-      <h4></h4>
-      <div>
-        Minnesota Bell Museum
-      </div>
+      <h3>Which plants speak to you?</h3>
+      {/* <h4></h4>
+      <div>Minnesota Bell Museum</div> */}
       <button
         className="viewMyGarden"
         onClick={() => {
@@ -71,17 +71,34 @@ function MnPlants() {
       <br />
       <div className="searchAndFilter">
         <div className="searchFilterCard">
-          <label for="mnPlants"><b>Filter Plants By: </b></label>
-          <select className="filterInput" name="mnPlants" id='mnPlants' value={filterBy} onChange={handleFilterBy}>
+          <label for="mnPlants">
+            <b>Filter Plants By: </b>
+          </label>
+          <select
+            className="filterInput"
+            name="mnPlants"
+            id="mnPlants"
+            value={filterBy}
+            onChange={handleFilterBy}
+          >
             <option value="genus">Genus</option>
             <option value="year">Year</option>
             <option value="county">County</option>
           </select>
           <br />
-          <label><b>Search: </b></label>
-          <input className="searchInput" type="text" placeholder={searchBy} onChange={() => handleSearchBy(event)} />
+          <label>
+            <b>Search: </b>
+          </label>
+          <input
+            className="searchInput"
+            type="text"
+            placeholder={searchBy}
+            onChange={() => handleSearchBy(event)}
+          />
           <br />
-          <button className="clearSearchBtn" onClick={clearSearch}>Clear Search</button>
+          {/* <button className="clearSearchBtn" onClick={clearSearch}>
+            Clear Search
+          </button> */}
         </div>
       </div>
       <div className="containerMargin">
@@ -91,10 +108,10 @@ function MnPlants() {
               let inGarden = false;
               myGarden.map((plantToCompare) => {
                 if (plant.id === plantToCompare.plant_id) {
-                  inGarden = true
+                  inGarden = true;
                 }
                 // console.log(`inGarden:`, inGarden);
-              })
+              });
               // console.log(`plant.id MAPPED:`, plant.id);
               return <MnPlantItem plant={plant} selected={inGarden} />;
             })
